@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  solana-bot:
+    build: .
+    container_name: vibeship_solana_bot
+    restart: always
+    environment:
+      - LOG_LEVEL=INFO
+      - ENV=PRODUCTION
+    volumes:
+      - ./logs:/app/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
